@@ -1,7 +1,0 @@
-**/node_modules/
-**/.next/
-**/build/
-**/.git/
-**/.env.local
-**/.DS_Store
-**/*.log
