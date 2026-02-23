@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тени Топкапы — браузерная сюжетная игра</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="backdrop"></div>
+    <main class="app">
+      <header class="topbar">
+        <h1>Тени Топкапы</h1>
+        <button id="restartBtn" class="ghost-btn">Начать заново</button>
+      </header>
+
+      <section class="grid">
+        <aside class="panel stats-panel">
+          <h2>Характеристики</h2>
+          <div id="stats"></div>
+
+          <h2>Отношения</h2>
+          <div id="relations"></div>
+        </aside>
+
+        <section class="panel story-panel">
+          <div class="chapter-row">
+            <span id="chapterTag" class="tag">Пролог</span>
+            <span id="archetypeTag" class="tag alt">—</span>
+          </div>
+          <h2 id="sceneTitle">Добро пожаловать во дворец</h2>
+          <p id="sceneText"></p>
+          <ul id="consequences" class="consequences"></ul>
+          <div id="choices" class="choices"></div>
+        </section>
+
+        <aside class="panel log-panel">
+          <h2>Лента последствий</h2>
+          <ul id="eventLog"></ul>
+        </aside>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
