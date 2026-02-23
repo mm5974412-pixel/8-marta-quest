@@ -65,6 +65,50 @@
       </section>
     </main>
 
-    <script src="game.js"></script>
+    <script>window.__TOPKAPI_BOOTED = false;</script>
+    <script src="./game.js?v=hotfix2"></script>
+    <script>
+      setTimeout(function () {
+        if (window.__TOPKAPI_BOOTED) return;
+
+        var stats = document.getElementById("stats");
+        var resources = document.getElementById("resources");
+        var relations = document.getElementById("relations");
+        var sceneTitle = document.getElementById("sceneTitle");
+        var sceneText = document.getElementById("sceneText");
+        var choices = document.getElementById("choices");
+        var log = document.getElementById("eventLog");
+
+        if (sceneTitle) sceneTitle.textContent = "Режим восстановления";
+        if (sceneText) sceneText.textContent = "Основной скрипт игры не загрузился (обычно это кэш/локальное открытие файла). Временный режим активирован: вы можете начать сюжет прямо сейчас.";
+
+        if (stats) stats.innerHTML = '<div class="metric"><label><span>Влияние</span><span>40</span></label><div class="bar"><div class="fill" style="width:40%"></div></div></div>';
+        if (resources) resources.innerHTML = '<div class="metric"><label><span>Тайные сведения</span><span>1</span></label><div class="bar"><div class="fill" style="width:20%"></div></div></div>';
+        if (relations) relations.innerHTML = '<div class="metric"><label><span>Султан</span><span>0</span></label><div class="bar"><div class="fill" style="width:50%"></div></div></div>';
+        if (log) log.innerHTML = '<li>Включен резервный режим: обновите страницу с Ctrl+F5.</li><li>Если открываете файл напрямую, лучше запустите локальный сервер.</li>';
+
+        if (choices) {
+          choices.innerHTML = '';
+          var a = document.createElement('button');
+          a.className = 'choice-btn';
+          a.textContent = 'Начать пролог (резервно)';
+          a.onclick = function () {
+            sceneTitle.textContent = 'Под сводами Топкапы';
+            sceneText.textContent = 'Вы входите во дворец как неизвестная фигура. Первый шепот уже несет угрозу и шанс.';
+            choices.innerHTML = '';
+            var b = document.createElement('button');
+            b.className = 'choice-btn';
+            b.textContent = 'Сделать осторожный ход';
+            b.onclick = function () {
+              sceneTitle.textContent = 'Первый союз';
+              sceneText.textContent = 'Вы нашли союзника среди слуг. История запущена — попробуйте перезагрузить страницу, чтобы включить полный режим.';
+              choices.innerHTML = '';
+            };
+            choices.appendChild(b);
+          };
+          choices.appendChild(a);
+        }
+      }, 250);
+    </script>
   </body>
 </html>
